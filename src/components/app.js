@@ -1,4 +1,5 @@
 import React from 'react';
+import fill from 'lodash.fill';
 import toRadians from '../utils/to-radians';
 
 export default class App extends React.Component {
@@ -36,6 +37,13 @@ export default class App extends React.Component {
         <figure>
           y(t) = {this.state.amplitude} * sin(2πt * {this.state.frequency} + {toRadians(this.state.phase * 4)})
         </figure>
+        <div>
+          {fill(Array(100), null).map((_, index) => {
+            const { amplitude, frequency, phase } = this.state;
+            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * frequency + toRadians(this.state.phase * 4));
+            return <div>{value}</div>;
+          })}
+        </div>
       </div>
     );
   }
