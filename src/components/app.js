@@ -40,7 +40,7 @@ export default class App extends React.Component {
         <div>
           {fill(Array(100), null).map((_, index) => {
             const { amplitude, frequency, phase } = this.state;
-            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * frequency + toRadians(this.state.phase * 4));
+            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * frequency + toRadians(phase * 4));
             return <div>{value}</div>;
           })}
         </div>
