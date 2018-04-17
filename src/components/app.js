@@ -41,9 +41,9 @@ export default class App extends React.Component {
         <LineChart
           interpolate="cardinal"
           yDomainRange={[-10, 10]}
-          data={[fill(Array(10), null).map((_, index) => {
+          data={[fill(Array(100), null).map((_, index) => {
             const { amplitude, frequency, phase } = this.state;
-            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * (frequency / 100) + toRadians(phase * 4));
+            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * (frequency / 600) + toRadians(phase * 4));
             return { x: index + 1, y: value };
           })]}
         />
