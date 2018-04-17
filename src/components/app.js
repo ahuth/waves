@@ -34,9 +34,6 @@ export default class App extends React.Component {
             <input id="phase" type="range" min="0" max="90" value={this.state.phase} onChange={this.handlePhaseChange} />
           </fieldset>
         </form>
-        <figure>
-          y(t) = {this.state.amplitude} * sin(2πt * {this.state.frequency} + {toRadians(this.state.phase * 4)})
-        </figure>
         <Sine
           amplitude={this.state.amplitude}
           frequency={this.state.frequency}
