@@ -1,5 +1,4 @@
 import React from 'react';
-import toRadians from '../utils/to-radians';
 import Sine from './sine';
 
 export default class App extends React.Component {
