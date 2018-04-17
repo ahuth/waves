@@ -38,9 +38,9 @@ export default class App extends React.Component {
           y(t) = {this.state.amplitude} * sin(2πt * {this.state.frequency} + {toRadians(this.state.phase * 4)})
         </figure>
         <div>
-          {fill(Array(100), null).map((_, index) => {
+          {fill(Array(10), null).map((_, index) => {
             const { amplitude, frequency, phase } = this.state;
-            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * frequency + toRadians(phase * 4));
+            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * (frequency / 100) + toRadians(phase * 4));
             return <div>{value}</div>;
           })}
         </div>
