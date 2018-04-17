@@ -1,7 +1,7 @@
 import React from 'react';
 import fill from 'lodash.fill';
-import { LineChart } from 'react-easy-chart';
 import toRadians from '../utils/to-radians';
+import Wave from './wave';
 
 export default class App extends React.Component {
   state = { amplitude: 5, frequency: 30, phase: 0 }
@@ -38,14 +38,12 @@ export default class App extends React.Component {
         <figure>
           y(t) = {this.state.amplitude} * sin(2πt * {this.state.frequency} + {toRadians(this.state.phase * 4)})
         </figure>
-        <LineChart
-          interpolate="cardinal"
-          yDomainRange={[-10, 10]}
-          data={[fill(Array(100), null).map((_, index) => {
+        <Wave
+          points={fill(Array(100), null).map((_, index) => {
             const { amplitude, frequency, phase } = this.state;
             const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * (frequency / 600) + toRadians(phase * 4));
             return { x: index + 1, y: value };
-          })]}
+          })}
         />
       </div>
     );
