@@ -25,11 +25,19 @@ export default class App extends React.Component {
   }
 
   handleVerticalMove = (delta) => {
-    this.setState({ amplitude: this.state.amplitude + delta });
+    const proposedValue = this.state.amplitude + delta;
+
+    if (proposedValue >= minAmplitude && proposedValue <= maxAmplitude) {
+      this.setState({ amplitude: proposedValue });
+    }
   }
 
   handleHorizontalMove = (delta) => {
-    this.setState({ frequency: this.state.frequency + delta });
+    const proposedValue = this.state.frequency + delta;
+
+    if (proposedValue >= minFrequency && proposedValue <= maxFrequency) {
+      this.setState({ frequency: proposedValue });
+    }
   }
 
   render() {
