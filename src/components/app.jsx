@@ -1,4 +1,5 @@
 import React from 'react';
+import Drag from './drag';
 import Sine from './sine';
 
 export default class App extends React.Component {
@@ -14,6 +15,14 @@ export default class App extends React.Component {
 
   handlePhaseChange = (event) => {
     this.setState({ phase: event.target.value });
+  }
+
+  handleVerticalMove = (delta) => {
+    this.setState({ amplitude: this.state.amplitude + delta });
+  }
+
+  handleHorizontalMove = (delta) => {
+    this.setState({ frequency: this.state.frequency + delta });
   }
 
   render() {
@@ -33,11 +42,16 @@ export default class App extends React.Component {
             <input id="phase" type="range" min="0" max="90" value={this.state.phase} onChange={this.handlePhaseChange} />
           </fieldset>
         </form>
-        <Sine
-          amplitude={this.state.amplitude}
-          frequency={this.state.frequency}
-          phase={this.state.phase}
-        />
+        <Drag
+          onHorizontal={this.handleHorizontalMove}
+          onVertical={this.handleVerticalMove}
+        >
+          <Sine
+            amplitude={this.state.amplitude}
+            frequency={this.state.frequency}
+            phase={this.state.phase}
+          />
+        </Drag>
       </div>
     );
   }
