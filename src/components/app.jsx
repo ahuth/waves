@@ -13,15 +13,15 @@ export default class App extends React.Component {
   state = { amplitude: 5, frequency: 30, phase: 0 }
 
   handleAmplitudeChange = (event) => {
-    this.setState({ amplitude: event.target.value });
+    this.setState({ amplitude: Number(event.target.value) });
   }
 
   handleFrequencyChange = (event) => {
-    this.setState({ frequency: event.target.value });
+    this.setState({ frequency: Number(event.target.value) });
   }
 
   handlePhaseChange = (event) => {
-    this.setState({ phase: event.target.value });
+    this.setState({ phase: Number(event.target.value) });
   }
 
   handleVerticalMove = (delta) => {
