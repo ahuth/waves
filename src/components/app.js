@@ -1,7 +1,6 @@
 import React from 'react';
-import fill from 'lodash.fill';
 import toRadians from '../utils/to-radians';
-import Wave from './wave';
+import Sine from './sine';
 
 export default class App extends React.Component {
   state = { amplitude: 5, frequency: 30, phase: 0 }
@@ -38,12 +37,10 @@ export default class App extends React.Component {
         <figure>
           y(t) = {this.state.amplitude} * sin(2πt * {this.state.frequency} + {toRadians(this.state.phase * 4)})
         </figure>
-        <Wave
-          points={fill(Array(100), null).map((_, index) => {
-            const { amplitude, frequency, phase } = this.state;
-            const value = amplitude * Math.sin(2 * Math.PI * (index + 1) * (frequency / 600) + toRadians(phase * 4));
-            return { x: index + 1, y: value };
-          })}
+        <Sine
+          amplitude={this.state.amplitude}
+          frequency={this.state.frequency}
+          phase={this.state.phase}
         />
       </div>
     );
