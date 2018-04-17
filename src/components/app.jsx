@@ -2,6 +2,13 @@ import React from 'react';
 import Drag from './drag';
 import Sine from './sine';
 
+const minAmplitude = 0;
+const maxAmplitude = 10;
+const minFrequency = 0;
+const maxFrequency = 60;
+const minPhase = 0;
+const maxPhase = 90;
+
 export default class App extends React.Component {
   state = { amplitude: 5, frequency: 30, phase: 0 }
 
@@ -31,15 +38,15 @@ export default class App extends React.Component {
         <form>
           <fieldset>
             <label htmlFor="amplitude">Amplitude</label>
-            <input id="amplitude" type="range" min="0" max="10" value={this.state.amplitude} onChange={this.handleAmplitudeChange} />
+            <input id="amplitude" type="range" min={minAmplitude} max={maxAmplitude} value={this.state.amplitude} onChange={this.handleAmplitudeChange} />
           </fieldset>
           <fieldset>
             <label htmlFor="frequency">Frequency</label>
-            <input id="frequency" type="range" min="0" max="60" value={this.state.frequency} onChange={this.handleFrequencyChange} />
+            <input id="frequency" type="range" min={minFrequency} max={maxFrequency} value={this.state.frequency} onChange={this.handleFrequencyChange} />
           </fieldset>
           <fieldset>
             <label htmlFor="phase">Phase</label>
-            <input id="phase" type="range" min="0" max="90" value={this.state.phase} onChange={this.handlePhaseChange} />
+            <input id="phase" type="range" min={minPhase} max={maxPhase} value={this.state.phase} onChange={this.handlePhaseChange} />
           </fieldset>
         </form>
         <Drag
