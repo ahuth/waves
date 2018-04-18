@@ -5,7 +5,7 @@ import Sine from './sine';
 const minAmplitude = 0;
 const maxAmplitude = 10;
 const minFrequency = 0;
-const maxFrequency = 60;
+const maxFrequency = 100;
 const minPhase = 0;
 const maxPhase = 90;
 
