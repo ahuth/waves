@@ -7,7 +7,7 @@ export default function Wave({ points }) {
       interpolate="cardinal"
       yDomainRange={[-10, 10]}
       data={[points]}
-      width="800"
+      width={800}
     />
   );
 }
