@@ -5,10 +5,10 @@ import ControlledSine from './controlled-sine';
 export default class App extends React.Component {
   state = {
     1: {
-      amplitude: 5, frequency: 30, phase: 0,
+      amplitude: 5, frequency: 10, phase: 0,
     },
     2: {
-      amplitude: 5, frequency: 60, phase: 45,
+      amplitude: 5, frequency: 80, phase: 60,
     },
   }
 
