@@ -9,6 +9,12 @@ const maxFrequency = 100;
 const minPhase = 0;
 const maxPhase = 90;
 
+const styles = {
+  container: {
+    display: 'flex',
+  },
+};
+
 export default class App extends React.Component {
   state = { amplitude: 5, frequency: 30, phase: 0 }
 
@@ -42,7 +48,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.container}>
         <form>
           <fieldset>
             <label htmlFor="amplitude">Amplitude</label>
