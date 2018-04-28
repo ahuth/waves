@@ -17,5 +17,5 @@ export default function CombinedWave({ waves }) {
     };
   });
 
-  return <Wave points={points} />;
+  return <Wave height={300} points={points} />;
 }
