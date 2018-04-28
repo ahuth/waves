@@ -16,37 +16,31 @@ const styles = {
 };
 
 export default class ControlledSine extends React.Component {
-  state = {
-    amplitude: this.props.amplitude,
-    frequency: this.props.frequency,
-    phase: this.props.phase,
-  }
-
   handleAmplitudeChange = (event) => {
-    this.setState({ amplitude: Number(event.target.value) });
+    this.props.onChange('amplitude', Number(event.target.value))
   }
 
   handleFrequencyChange = (event) => {
-    this.setState({ frequency: Number(event.target.value) });
+    this.props.onChange('frequency', Number(event.target.value))
   }
 
   handlePhaseChange = (event) => {
-    this.setState({ phase: Number(event.target.value) });
+    this.props.onChange('phase', Number(event.target.value))
   }
 
   handleVerticalMove = (delta) => {
-    const proposedValue = this.state.amplitude + delta;
+    const proposedValue = this.props.amplitude + delta;
 
     if (proposedValue >= minAmplitude && proposedValue <= maxAmplitude) {
-      this.setState({ amplitude: proposedValue });
+      this.props.onChange('amplitude', proposedValue)
     }
   }
 
   handleHorizontalMove = (delta) => {
-    const proposedValue = this.state.frequency + delta;
+    const proposedValue = this.props.frequency + delta;
 
     if (proposedValue >= minFrequency && proposedValue <= maxFrequency) {
-      this.setState({ frequency: proposedValue });
+      this.props.onChange('frequency', proposedValue)
     }
   }
 
@@ -56,15 +50,15 @@ export default class ControlledSine extends React.Component {
         <form>
           <fieldset>
             <label htmlFor="amplitude">Amplitude</label>
-            <input id="amplitude" type="range" min={minAmplitude} max={maxAmplitude} value={this.state.amplitude} onChange={this.handleAmplitudeChange} />
+            <input id="amplitude" type="range" min={minAmplitude} max={maxAmplitude} value={this.props.amplitude} onChange={this.handleAmplitudeChange} />
           </fieldset>
           <fieldset>
             <label htmlFor="frequency">Frequency</label>
-            <input id="frequency" type="range" min={minFrequency} max={maxFrequency} value={this.state.frequency} onChange={this.handleFrequencyChange} />
+            <input id="frequency" type="range" min={minFrequency} max={maxFrequency} value={this.props.frequency} onChange={this.handleFrequencyChange} />
           </fieldset>
           <fieldset>
             <label htmlFor="phase">Phase</label>
-            <input id="phase" type="range" min={minPhase} max={maxPhase} value={this.state.phase} onChange={this.handlePhaseChange} />
+            <input id="phase" type="range" min={minPhase} max={maxPhase} value={this.props.phase} onChange={this.handlePhaseChange} />
           </fieldset>
         </form>
         <Drag
@@ -72,9 +66,9 @@ export default class ControlledSine extends React.Component {
           onVertical={this.handleVerticalMove}
         >
           <Sine
-            amplitude={this.state.amplitude}
-            frequency={this.state.frequency}
-            phase={this.state.phase}
+            amplitude={this.props.amplitude}
+            frequency={this.props.frequency}
+            phase={this.props.phase}
           />
         </Drag>
       </div>
