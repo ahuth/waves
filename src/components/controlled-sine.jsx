@@ -47,6 +47,16 @@ export default class ControlledSine extends React.Component {
   render() {
     return (
       <div style={styles.container}>
+        <Drag
+          onHorizontal={this.handleHorizontalMove}
+          onVertical={this.handleVerticalMove}
+        >
+          <Sine
+            amplitude={this.props.amplitude}
+            frequency={this.props.frequency}
+            phase={this.props.phase}
+          />
+        </Drag>
         <form>
           <fieldset>
             <label htmlFor="amplitude">Amplitude</label>
@@ -61,16 +71,6 @@ export default class ControlledSine extends React.Component {
             <input id="phase" type="range" min={minPhase} max={maxPhase} value={this.props.phase} onChange={this.handlePhaseChange} />
           </fieldset>
         </form>
-        <Drag
-          onHorizontal={this.handleHorizontalMove}
-          onVertical={this.handleVerticalMove}
-        >
-          <Sine
-            amplitude={this.props.amplitude}
-            frequency={this.props.frequency}
-            phase={this.props.phase}
-          />
-        </Drag>
       </div>
     );
   }
