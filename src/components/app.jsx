@@ -8,7 +8,7 @@ export default class App extends React.Component {
       amplitude: 5, frequency: 30, phase: 0,
     },
     2: {
-      amplitude: 5, frequency: 30, phase: 0,
+      amplitude: 5, frequency: 60, phase: 45,
     },
   }
 
