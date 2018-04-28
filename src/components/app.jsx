@@ -1,4 +1,5 @@
 import React from 'react';
+import CombinedWave from './combined-wave';
 import ControlledSine from './controlled-sine';
 
 export default class App extends React.Component {
@@ -34,6 +35,7 @@ export default class App extends React.Component {
           phase={this.state[2].phase}
           onChange={(attribute, value) => this.handleChange(2, attribute, value)}
         />
+        <CombinedWave waves={this.state} />
       </div>
     );
   }
