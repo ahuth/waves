@@ -2,6 +2,7 @@ import React from 'react';
 import map from 'lodash.map';
 import zip from 'lodash.zip';
 import Wave from './wave';
+import normalize from '../utils/normalize';
 import toPoints from '../utils/to-points';
 
 export default function CombinedWave({ waves }) {
@@ -12,7 +13,7 @@ export default function CombinedWave({ waves }) {
   const points = map(zip(...wavePoints), (wavePoints) => {
     return {
       x: wavePoints[0].x,
-      y: wavePoints.reduce((acc, points) => acc + points.y, 0),
+      y: normalize(wavePoints.reduce((acc, points) => acc + points.y, 0), 0, 2),
     };
   });
 
