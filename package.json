@@ -5,6 +5,7 @@
   "homepage": "https://ahuth.github.io/waves",
   "dependencies": {
     "lodash.fill": "^3.4.0",
+    "lodash.map": "^4.6.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-easy-chart": "^1.0.0",
